@@ -1,0 +1,30 @@
+From 2c3e7123dadfad9e363a376c5e61aac199cb605f Mon Sep 17 00:00:00 2001
+From: Pawit Pornkitprasan <p.pawit@gmail.com>
+Date: Sun, 16 Nov 2014 08:55:55 +0700
+Subject: [PATCH] Settings: i9082: disable manual provisioning
+
+Does not work here
+
+Change-Id: I1096b349ccf60b05aa261289b6bc7127beffaca5
+---
+ src/com/android/settings/sim/MultiSimEnablerPreference.java | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/src/com/android/settings/sim/MultiSimEnablerPreference.java b/src/com/android/settings/sim/MultiSimEnablerPreference.java
+index ed1424f..93344ee 100644
+--- a/src/com/android/settings/sim/MultiSimEnablerPreference.java
++++ b/src/com/android/settings/sim/MultiSimEnablerPreference.java
+@@ -219,7 +219,9 @@ public class MultiSimEnablerPreference extends SwitchPreference implements
+         super.onBindView(view);
+ 
+         mSwitch = (Switch) view.findViewById(com.android.internal.R.id.switchWidget);
+-        mSwitch.setClickable(true);
++        // Disable manual provisioning
++        mSwitch.setClickable(false);
++        mSwitch.setVisibility(View.INVISIBLE);
+ 
+         update();
+     }
+-- 
+2.3.5
+
